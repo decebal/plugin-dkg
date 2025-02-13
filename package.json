@@ -1,5 +1,5 @@
 {
-    "name": "@elizaos/plugin-dkg",
+    "name": "@elizaos-plugins/plugin-dkg",
     "version": "0.1.9",
     "type": "module",
     "main": "dist/index.js",
@@ -19,7 +19,6 @@
         "dist"
     ],
     "dependencies": {
-        "@elizaos/core": "workspace:*",
         "dkg.js": "^8.0.4",
         "tsup": "8.3.5"
     },
