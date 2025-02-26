@@ -37,5 +37,28 @@
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "typescript": "4.9"
+    },
+    "agentConfig": {
+        "pluginType": "elizaos:client:1.0.0",
+        "pluginParameters": {
+            "NODE_INFORMATION": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Node information for connecting to the OriginTrail DKG.",
+                "optional": false
+            },
+            "LLM_KEY": {
+                "type": "string",
+                "minLength": 1,
+                "description": "LLM key for integrating large language models.",
+                "optional": false
+            },
+            "TWITTER_CREDENTIALS": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Twitter credentials for enabling Twitter-based interactions.",
+                "optional": false
+            }
+        }
     }
 }
