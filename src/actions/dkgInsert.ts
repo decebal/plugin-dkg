@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
+import { z } from "zod";
 import {
     type IAgentRuntime,
     type Memory,
@@ -12,11 +13,11 @@ import {
     composeContext,
     generateObject,
 } from "@elizaos/core";
-import { DKG_EXPLORER_LINKS } from "../constants.ts";
-import { createDKGMemoryTemplate } from "../templates.ts";
+import { DKG_EXPLORER_LINKS } from "../constants.js";
+import { createDKGMemoryTemplate } from "../templates.js";
 // @ts-ignore
 import DKG from "dkg.js";
-import { DKGMemorySchema, isDKGMemoryContent } from "../types.ts";
+import { DKGMemorySchema, DKGMemoryContent, isDKGMemoryContent } from "../types.js";
 
 // Define a basic type for the DKG client
 type DKGClient = typeof DKG | null;
@@ -107,7 +108,8 @@ export const dkgInsert: Action = {
             runtime,
             context: createDKGMemoryContext,
             modelClass: ModelClass.LARGE,
-            schema: DKGMemorySchema,
+            // @ts-ignore
+            schema: DKGMemorySchema as z.ZodType<DKGMemoryContent, z.ZodTypeDef, unknown>,
         });
 
         if (!isDKGMemoryContent(memoryKnowledgeGraph.object)) {

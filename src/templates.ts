@@ -1,4 +1,4 @@
-import { dkgMemoryTemplate } from "./constants.ts";
+import { dkgMemoryTemplate } from "./constants.js";
 
 export const createDKGMemoryTemplate = `
   You are tasked with creating a structured memory JSON-LD object for an AI agent. The memory represents the interaction captured via social media. Your goal is to extract all relevant information from the provided user query and additionalContext which contains previous user queries (only if relevant for the current user query) to populate the JSON-LD memory template provided below.

@@ -13,10 +13,11 @@ import {
     combinedSparqlExample,
     dkgMemoryTemplate,
     generalSparqlQuery,
-} from "../constants.ts";
+} from "../constants.js";
 // @ts-ignore
 import DKG from "dkg.js";
-import { DKGSelectQuerySchema, isDKGSelectQuery, type DKGQueryResultEntry } from "../types.ts";
+import { DKGSelectQuerySchema, isDKGSelectQuery, type DKGQueryResultEntry } from "../types.js";
+import { z } from "zod";
 
 // Provider configuration
 const PROVIDER_CONFIG = {
@@ -85,7 +86,8 @@ async function constructSparqlQuery(
         runtime,
         context,
         modelClass: ModelClass.LARGE,
-        schema: DKGSelectQuerySchema,
+        // @ts-ignore
+        schema: DKGSelectQuerySchema as z.ZodType<DKGSelectQuery, z.ZodTypeDef, unknown>,
     });
 
     if (!isDKGSelectQuery(sparqlQueryResult.object)) {

@@ -1,2 +1,2 @@
-export * from "./dkgInsert.ts";
+export * from "./dkgInsert.js";
 
